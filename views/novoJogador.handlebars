@@ -1,0 +1,42 @@
+<div class="text-center mt-4">
+    <h1 class="my-4">Criar Jogador</h1>
+
+    <form action="novo" method="POST" class="col-lg-6 mx-auto">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="idade" class="form-label">Idade</label>
+            <input type="number" class="form-control" id="idade" name="idade" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="posicao" class="form-label">Posição</label>
+            <input type="text" class="form-control" id="posicao" name="posicao" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="nacionalidade" class="form-label">Nacionalidade</label>
+            <input type="text" class="form-control" id="nacionalidade" name="nacionalidade" required>
+        </div>
+
+        {{#if times}}
+        <div class="mb-3">
+            <label for="time" class="form-label">Time</label>
+            <select class="form-select" id="time" name="timeId">
+                <option value="" selected>Selecione um Time</option>
+                {{#each times}}
+                <option value="{{this.id}}">{{this.nome}}</option>
+                {{/each}}
+            </select>
+        </div>
+        {{/if}}
+
+        <div class="d-flex justify-content-center mt-3">
+            <button type="submit" class="btn btn-primary me-2">Criar</button>
+            <a href="/jogador" class="btn btn-danger">Cancelar</a>
+        </div>
+    </form>
+</div>

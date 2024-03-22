@@ -1,0 +1,45 @@
+<div class="container d-flex justify-content-center align-items-center flex-column">
+    <div class="text-center mt-4">
+        <h1>Times</h1>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+        <a href="time/novo" class="btn btn-primary mb-4 me-2">Criar Time</a>
+        <a href="/jogador" class="btn btn-secondary mb-4">Ver Jogadores</a>
+    </div>
+</div>
+
+<style>
+    .card-img-container {
+        height: 20rem;
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        height: 20rem;
+        object-fit: cover;
+    }
+</style>
+
+<div class="row">
+    {{#each times}}
+    <div class="col-sm-4">
+        <div class="card mb-4 shadow-sm" style="cursor: pointer;" data-bs-toggle="modal"
+            data-bs-target="#modal{{this.id}}">
+            <div class="card-img-container">
+                <img src="{{this.logo}}" class="card-img-top" alt="{{this.nome}}">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{this.nome}}</h5>
+                <p class="card-text">
+                    Treinador: {{this.treinador}}<br>
+                    Uniforme: {{this.uniforme}}<br>
+                    Cidade: {{this.cidade}}<br>
+                    Estádio: {{this.estadio}}
+                </p>
+            </div>
+        </div>
+    </div>
+    {{> timeModal}}
+</div>
+{{/each}}

@@ -1,0 +1,30 @@
+<div class="container d-flex justify-content-center align-items-center flex-column">
+    <div class="text-center mt-4">
+        <h1>Jogadores</h1>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+        <a href="jogador/novo" class="btn btn-primary mb-4 me-2">Criar Jogador</a>
+        <a href="/time" class="btn btn-secondary mb-4">Ver Times</a>
+    </div>
+</div>
+
+<div class="row">
+    {{#each jogadores}}
+    <div class="col-sm-4">
+        <div class="card mb-4 shadow-sm" style="cursor: pointer;" data-bs-toggle="modal"
+            data-bs-target="#modal{{this.id}}">
+            <div class="card-body">
+                <h2 class="card-title">{{this.nome}}</h2>
+                <p class="card-text">
+                    Idade: {{this.idade}}<br>
+                    Posição: {{this.posicao}}<br>
+                    Nacionalidade: {{this.nacionalidade}}<br>
+                    Time: {{#if this.time}} {{this.time.nome}} {{else}} Sem time {{/if}}
+                </p>
+            </div>
+        </div>
+        {{> jogadorModal}}
+    </div>
+</div>
+{{/each}}

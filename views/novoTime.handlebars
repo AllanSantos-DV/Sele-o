@@ -1,0 +1,49 @@
+<h1 class="my-4 text-center">Criar Time</h1>
+
+<form action="novo" method="POST" enctype="multipart/form-data" class="col-lg-6 mx-auto">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="treinador" class="form-label">Treinador</label>
+        <input type="text" class="form-control" id="treinador" name="treinador" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="uniforme" class="form-label">Uniforme</label>
+        <input type="text" class="form-control" id="uniforme" name="uniforme" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="cidade" class="form-label">Cidade</label>
+        <input type="text" class="form-control" id="cidade" name="cidade" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="estadio" class="form-label">Estádio</label>
+        <input type="text" class="form-control" id="estadio" name="estadio" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="logo" class="form-label">Logo</label>
+        <input type="file" class="form-control" id="logo" name="logo" accept=".jpg, .jpeg">
+    </div>
+
+    {{#if jogadores}}
+    <div class="mb-3">
+        <label for="jogadores" class="form-label">Jogadores</label>
+        <select multiple class="form-select" id="jogadores" name="jogadores">
+            {{#each jogadores}}
+            <option value="{{this.id}}">{{this.nome}}</option>
+            {{/each}}
+        </select>
+    </div>
+    {{/if}}
+
+    <div class="d-flex justify-content-center mt-3">
+        <button type="submit" class="btn btn-primary me-2">Criar</button>
+        <a href="/time" class="btn btn-danger">Cancelar</a>
+    </div>
+</form>

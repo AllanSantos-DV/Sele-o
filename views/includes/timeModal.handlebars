@@ -1,0 +1,70 @@
+<!-- Modal -->
+<div class="modal fade" id="modal{{this.id}}" tabindex="-1" aria-labelledby="modalLabel{{this.id}}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel{{this.id}}">Editar Time</h5>
+            </div>
+            <div class="modal-body">
+                <form id="editForm" method="POST" action="time/update/{{this.id}}" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" value="{{this.nome}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="treinador" class="form-label">Treinador</label>
+                        <input type="text" class="form-control" id="treinador" name="treinador"
+                            value="{{this.treinador}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="uniforme" class="form-label">Uniforme</label>
+                        <input type="text" class="form-control" id="uniforme" name="uniforme" value="{{this.uniforme}}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" name="cidade" value="{{this.cidade}}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="estadio" class="form-label">Estádio</label>
+                        <input type="text" class="form-control" id="estadio" name="estadio" value="{{this.estadio}}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="logo" class="form-label">Logo</label>
+                        <input type="file" class="form-control" id="logo" name="logo">
+                    </div>
+                    {{#if this.jogadoresSemTime}}
+                    <div class="mb-flex text-center">
+                        <label for="jogadores" class="form-label">Selecionar jogadores para Incluir no Time</label>
+                        <select name="jogadores" id="jogadores" class="form-select" multiple
+                            style="background-color: lightgreen;">
+                            {{#each this.jogadoresSemTime}}
+                            <option value="{{this.id}}">{{this.nome}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    {{/if}}
+                    {{#if this.jogadores}}
+                    <div class="mb-flex text-center">
+                        <label for="jogadoresRem" class="form-label">Selecionar jogadores para Remover do Time</label>
+                        <select name="jogadoresRem" id="jogadoresRem" class="form-select" multiple
+                            style="background-color: lightcoral;">
+                            {{#each this.jogadores}}
+                            <option value="{{this.id}}">{{this.nome}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    {{/if}}
+                    <div class="d-flex">
+                        <button type="submit" class="btn btn-primary me-2">Salvar mudanças</button>
+                        <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Fechar</button>
+                </form>
+                <form action="time/delete/{{this.id}}" method="post">
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
