@@ -1,4 +1,14 @@
 {
+  "name": "selecoes",
+  "version": "1.0.0",
+  "description": "Este é um aplicativo inovador que permite aos usuários criar e gerenciar times esportivos, bem como alocar jogadores em cada time. Uma característica única deste aplicativo é a capacidade de interligar times e jogadores, proporcionando uma experiência de usuário integrada e eficiente. Seja você um treinador procurando gerenciar sua equipe ou um jogador procurando se juntar a um time, este aplicativo tem algo para todos.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [ "time", "jogadores", "criação", "Node.js", "aplicativo" ],
+  "author": "Victor, Allan",
+  "license": "MIT",
   "dependencies": {
     "connect-flash": "^0.1.1",
     "dotenv": "^16.4.5",

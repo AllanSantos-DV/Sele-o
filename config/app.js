@@ -5,8 +5,8 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 // Importar rotas
-const timeRouter = require('./routers/timeRouter');
-const jogadorRouter = require('./routers/jogadorRouter');
+const timeRouter = require('../routers/timeRouter');
+const jogadorRouter = require('../routers/jogadorRouter');
 
 // Criar aplicativo
 const app = express();
@@ -14,7 +14,7 @@ const app = express();
 // Configurar aplicativo
 app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main',
-    partialsDir: path.join(__dirname, '/views/includes/')
+    partialsDir: path.join(__dirname, '../views/includes/')
 }));
 app.set('view engine', 'handlebars');
 
